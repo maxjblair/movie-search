@@ -378,6 +378,8 @@ button.movie-tile-details_button.active .minus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
   color: #F5C518;
   min-height: 3rem;
   padding: 0 2rem;
