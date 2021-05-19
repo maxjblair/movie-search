@@ -1,0 +1,66 @@
+.search-{
+  &container {
+    margin: 0 2rem;
+    flex: 1 0 auto;
+    // @include breakpoint(desktop) {
+    //   margin: 0 10rem;
+    // }
+  }
+  &form {
+    border-bottom: 2px solid $black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: $margin-lg;
+    .searchbox {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  &label {
+    display: inline-block;
+    font-size: $font-size-xl;
+    font-weight: bold;
+    margin-bottom: $margin-sm;
+    margin-right: $margin-lg;
+  }
+  &input {
+    display: inline-block;
+    margin-bottom: $margin-xs;
+    margin-right: $margin-lg;
+    padding: $margin-xs;
+    width: 100%;
+    max-width: 480px;
+  }
+  &button {
+    border-radius:10px;
+    cursor: pointer;
+    font-size: $font-size;
+    color: $white;
+    background-color: $blue;
+    padding: 0 $margin-sm;
+    // width: 100%;
+    // max-width: 480px;
+    &:hover {
+      background-color: #00B1E4;
+    }
+  }
+  &results {
+    &-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      align-items: center;
+      margin-bottom: $margin-lg;
+      @include breakpoint(tablet) {
+        flex-direction: row;
+        margin-bottom: 0;
+      }
+    }
+    h2 {
+      font-size: $font-size-lg;
+    }
+  }
+}

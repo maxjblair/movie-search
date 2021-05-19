@@ -1,0 +1,32 @@
+.App-footer {
+  font-size: $font-size-sm;
+  background-color: $black;
+  //bottom: 0;
+  //position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  justify-content: space-between;
+  color: $white;
+  min-height: 3rem;
+  padding: 0 2rem;
+  a {
+    color: $white;
+  }
+  &-left {
+    flex: 0 0 50%; 
+    ul {
+      padding-left: 0;
+      list-style-type: none;
+    }
+  }
+  &-right {
+    flex: 0 0 50%; 
+    text-align: right;
+    p {
+      font-size: $font-size-sm;
+    }
+  }
+}

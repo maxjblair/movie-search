@@ -1,0 +1,145 @@
+.movie-{
+    &tiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    &tile {
+      border-radius: 10px;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+      display: flex;
+      flex-basis: 100%;
+      margin: 0 0 3rem 0;
+      padding: $margin-lg;
+      @include breakpoint(tablet) {
+        margin: 0 3rem 3rem 0;
+        flex-basis: calc(50% - 1.5rem);
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+      @include breakpoint(desktop) {
+        flex-basis: calc(33.33334% - 2rem);
+        &:nth-child(2n) {
+          margin-right: 3rem;
+        }
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+      &-container {
+        width: 100%;
+      }
+      &-left {
+        flex-shrink: 0;
+        padding-right: $margin-lg;
+        width: calc(185px + 2rem);
+      }
+      h3 {
+        background-color: $light-gray;
+        font-size: $font-size-md;
+        margin-top: 0;
+        padding: 0 1rem .5rem;
+      }
+      &-details {
+        margin: 0 $margin-xs;
+        &_button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: $font-size-md;
+          font-weight: bold;
+          padding: 0;
+          // &:after{
+          //   content: '\002B'; /* Unicode character for "plus" sign (+) */
+          //   color: red;
+          //   font-weight: bold;
+          //   font-size: 2.6rem;
+          //   float: right;
+          //   margin-left: 5px;
+          //   margin-top: -1px;            
+          // }
+          &:focus {
+            outline: none;
+          }
+          // &.active:after {
+          //   content: "\2212";
+          // }
+        }
+      }
+    .movie-poster {
+        border: 5px double $black;
+        display: block;
+        margin: 0 auto $margin-lg;
+        @include breakpoint(desktop) {
+          float: right;
+          margin: 0 0 $margin-sm $margin-sm;
+        }
+      }
+    }
+    &details {
+      &-appended {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+    }
+  }
+
+  button.movie-tile-details_button {
+    color: $black;
+    // background: #e74c3c;
+    // width: 70px;
+    // height: 70px;
+    position: relative;
+    font-size: $font-size-md;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    padding: 0
+  }
+
+  .plus,
+  .minus {
+    color: red;
+    width: 2.3rem;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 102px;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    box-sizing: border-box;
+    transition: .5s all ease-out;
+  }
+
+  .plus {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  button.movie-tile-details_button.active .plus {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .minus {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+
+  button.movie-tile-details_button.active .minus {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  .icon-plus:after {
+    content: '\002B';
+  }
+
+  .icon-minus:after {
+    content: '\2212';
+  }
