@@ -112,7 +112,6 @@ export default function MovieSearch() {
                         onChange={(e) => setQuery(e.target.value)}
                     >
                     </input>
-                    <br />
                     <button className="search-button" type="submit">Search</button>
                 </div>
             </form>

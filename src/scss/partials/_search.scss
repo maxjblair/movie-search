@@ -11,10 +11,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-bottom: $margin-lg;
+    margin-bottom: $margin-xl;
     .searchbox {
       display: flex;
       justify-content: center;
+      margin-bottom: $margin-xl;
       width: 100%;
     }
   }
@@ -22,23 +23,23 @@
     display: inline-block;
     font-size: $font-size-xl;
     font-weight: bold;
-    margin-bottom: $margin-sm;
     margin-right: $margin-lg;
   }
   &input {
     display: inline-block;
-    margin-bottom: $margin-xs;
     margin-right: $margin-lg;
     padding: $margin-xs;
     width: 100%;
     max-width: 480px;
+    font-size: $font-size;
   }
   &button {
     border-radius:10px;
     cursor: pointer;
     font-size: $font-size;
-    color: $white;
-    background-color: $blue;
+    font-weight: bold;
+    color: $black;
+    background-color: $yellow;
     padding: 0 $margin-sm;
     // width: 100%;
     // max-width: 480px;
