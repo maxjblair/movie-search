@@ -41,10 +41,8 @@
     color: $black;
     background-color: $yellow;
     padding: 0 $margin-sm;
-    // width: 100%;
-    // max-width: 480px;
     &:hover {
-      background-color: #00B1E4;
+      background-color: $yellow-dark;
     }
   }
   &results {
