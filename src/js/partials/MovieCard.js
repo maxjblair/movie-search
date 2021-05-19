@@ -14,26 +14,31 @@ export default function MovieCard(props) {
 
         if ( moreInfoActive && !movieDetails[id] ) {
             const movieApi = `${props.apiRoot}/movie/${id}?api_key=${props.apiKey}`
-            timeoutMS = 100
+            // timeoutMS = 100
             try {
                 const res = await fetch(movieApi);
                 const data  = await res.json();
                 setMovieDetails({...movieDetails, [id]: [data]})
-                setMovieProdComps({...movieProdComps, [id]: data.production_companies.filter(n => n.logo_path).map(n => n.name)})
-                setMovieProdImgs({...movieProdImgs, [id]: data.production_companies.filter(n => n.logo_path).map(n => n.logo_path)})
+                // setMovieProdComps({...movieProdComps, [id]: data.production_companies.filter(n => n.logo_path).map(n => n.name)})
+                // setMovieProdImgs({...movieProdImgs, [id]: data.production_companies.filter(n => n.logo_path).map(n => n.logo_path)})
             }catch(err){
                 console.error(err);
             }
         }
         let moreInfoDiv = moreInfoBtn.nextElementSibling;
+        if (moreInfoDiv.style.maxHeight){
+            moreInfoDiv.style.maxHeight = null;
+        } else {
+            moreInfoDiv.style.maxHeight = moreInfoDiv.scrollHeight + "px";
+        }
 
-        setTimeout(() => {  
-            if (moreInfoDiv.style.maxHeight){
-                moreInfoDiv.style.maxHeight = null;
-            } else {
-                moreInfoDiv.style.maxHeight = moreInfoDiv.scrollHeight + "px";
-            }
-        }, timeoutMS)
+        // setTimeout(() => {  
+        //     if (moreInfoDiv.style.maxHeight){
+        //         moreInfoDiv.style.maxHeight = null;
+        //     } else {
+        //         moreInfoDiv.style.maxHeight = moreInfoDiv.scrollHeight + "px";
+        //     }
+        // }, timeoutMS)
     }
 
     return (
@@ -74,7 +79,7 @@ export default function MovieCard(props) {
                                 movieId={movie.id} 
                                 movieDetails={movieDetails[movie.id]}
                                 movieProdComps={movieProdComps[movie.id]}
-                                movieProdImgs={movieProdImgs[movie.id]}
+                                // movieProdImgs={movieProdImgs[movie.id]}
                             />
                         </div>
                     </div>

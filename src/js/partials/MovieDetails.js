@@ -1,6 +1,6 @@
 export default function MovieDetails(props) {
-    const movieProdComps = props.movieProdComps
-    const movieProdImgs = props.movieProdImgs
+    // const movieProdComps = props.movieProdComps
+    // const movieProdImgs = props.movieProdImgs
 
     const movieDetails = props.movieDetails ? props.movieDetails[0] : ''
     const moneyFormat = new Intl.NumberFormat('en-US', {
@@ -21,13 +21,13 @@ export default function MovieDetails(props) {
             <p><label>Runtime:</label> {`${Math.round(movieDetails.runtime/60)} hours, ${movieDetails.runtime%60} minutes`}</p>
             <p><label>Budget:</label> {moneyFormat.format(movieDetails.budget)}</p>
             <p><label>Revenue:</label> {moneyFormat.format(movieDetails.revenue)}</p>
-            <p className={movieProdImgs && movieProdImgs.length > 0 ? '' : 'hide' }><label>Production Companies:</label></p>
-                <div>
-                    {movieProdImgs && movieProdImgs.length > 0 ? movieProdImgs.map((img,i) => (
-                        <img className='production-images' key={`${props.movieId}-${i}`} src={`https://image.tmdb.org/t/p/w45/${img}`} alt={movieProdComps[i]} />
-                    )) : ''
-                    }
-                </div>
+            {/* <p className={movieProdImgs && movieProdImgs.length > 0 ? '' : 'hide' }><label>Production Companies:</label></p>
+            <div>
+                {movieProdImgs && movieProdImgs.length > 0 ? movieProdImgs.map((img,i) => (
+                    <img className='production-images' key={`${props.movieId}-${i}`} src={`https://image.tmdb.org/t/p/w45/${img}`} alt={movieProdComps[i]} />
+                )) : ''
+                }
+            </div> */}
         </div>
     )
 }
