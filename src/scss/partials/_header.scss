@@ -1,5 +1,5 @@
 .App-header {
-    background-color: $black;
+    background-color: $blue-dark;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,9 +8,9 @@
     margin-bottom: $margin-xl;
     width: 100%;
     h1 {
-      background-color: $yellow;
+      background-color: $blue-light;
       border-radius: 10px;
-      color: $black;
+      color: $blue-dark;
       font-size: 5rem;
       margin: 2rem;
       padding: 0 10rem .5rem;

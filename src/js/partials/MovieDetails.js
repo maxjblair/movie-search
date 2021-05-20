@@ -15,12 +15,12 @@ export default function MovieDetails(props) {
 
     return (
         <div id={`${props.movieId}-appended`} className="movie-details-appended">
-            <p><strong>{movieDetails.tagline}</strong></p>
-            <p><label>Genre(s):</label> {genres}</p>
+            <h4>{movieDetails.tagline}</h4>
+            <p><label>Genre(s):</label> {genres ? genres : 'NA'}</p>
             <p><label>Rating Votes:</label> {`${numberFormat.format(movieDetails.vote_count)}`}</p>
             <p><label>Runtime:</label> {`${Math.round(movieDetails.runtime/60)} hours, ${movieDetails.runtime%60} minutes`}</p>
-            <p><label>Budget:</label> {moneyFormat.format(movieDetails.budget)}</p>
-            <p><label>Revenue:</label> {moneyFormat.format(movieDetails.revenue)}</p>
+            <p><label>Budget:</label> {movieDetails.budget > 0 ? moneyFormat.format(movieDetails.budget) : 'NA'}</p>
+            <p><label>Revenue:</label> {movieDetails.revenue > 0 ? moneyFormat.format(movieDetails.revenue) : 'NA'}</p>
             {/* <p className={movieProdImgs && movieProdImgs.length > 0 ? '' : 'hide' }><label>Production Companies:</label></p>
             <div>
                 {movieProdImgs && movieProdImgs.length > 0 ? movieProdImgs.map((img,i) => (
@@ -28,6 +28,7 @@ export default function MovieDetails(props) {
                 )) : ''
                 }
             </div> */}
+            <p><a href={`http://www.themoviedb.org/movie/${movieDetails.id}`} target="_blank" alt="Full Movie Details" rel="noreferrer">Full Details</a></p>
         </div>
     )
 }
