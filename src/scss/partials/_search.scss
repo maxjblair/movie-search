@@ -8,39 +8,50 @@
   }
   &form {
     border-bottom: 2px solid $black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     margin-bottom: $margin-xl;
     .searchbox {
       display: flex;
-      justify-content: center;
+      align-items: center;
       margin-bottom: $margin-xl;
       width: 100%;
+      flex-direction: column;
     }
   }
   &label {
-    display: inline-block;
     font-size: $font-size-xl;
-    font-weight: bold;
-    margin-right: $margin-lg;
+    margin-bottom: $margin-lg;
+    text-align: center;
+    // @include breakpoint(desktop) {
+    //   margin-bottom: 0;
+    //   margin-right: $margin-lg;
+    // }
   }
   &input {
     display: inline-block;
-    margin-right: $margin-lg;
     padding: $margin-xs;
     width: 100%;
     max-width: 480px;
     font-size: $font-size;
+    margin-bottom: $margin-lg;
+    // @include breakpoint(desktop) {
+    //   margin-bottom: 0;
+    //   margin-right: $margin-lg;
+    // }
   }
   &button {
+    background-color: $blue-dark;
     border-radius:10px;
+    color: $white;
     cursor: pointer;
     font-size: $font-size;
     font-weight: bold;
-    color: $white;
-    background-color: $blue-dark;
-    padding: 0 $margin-sm;
+    padding: $margin-sm;
+    width: 205px;
+    // @include breakpoint(desktop) {
+    //   margin-bottom: 0;
+    //   margin-right: $margin-lg;
+    //   padding: 0 $margin-sm;
+    // }
     &:hover {
       background-color: $blue-light;
     }
@@ -52,15 +63,17 @@
       justify-content: space-between;
       overflow: hidden;
       // align-items: center;
-      margin-bottom: $margin-lg;
+      margin-bottom: $margin-xl;
       @include breakpoint(tablet) {
         flex-direction: row;
-        margin-bottom: $margin-xl;
       }
     }
     h2 {
       font-size: $font-size-lg;
-      margin: 0;
+      margin: 0 0 $margin-lg;
+      @include breakpoint(tablet) {
+        margin: 0;
+      }
     }
   }
 }
