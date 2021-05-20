@@ -1,6 +1,7 @@
 .App-footer {
   font-size: $font-size-sm;
-  background-color: $black;
+  background-color: $blue-dark;
+  color: $white;
   //bottom: 0;
   //position: absolute;
   width: 100%;
@@ -10,11 +11,10 @@
   flex-shrink: 0;
   justify-content: space-between;
   align-content: center;
-  color: $yellow;
   min-height: 3rem;
   padding: 0 2rem;
   a {
-    color: $yellow;
+    color: $white;
   }
   &-left {
     flex: 0 0 50%; 

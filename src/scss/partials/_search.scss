@@ -38,11 +38,11 @@
     cursor: pointer;
     font-size: $font-size;
     font-weight: bold;
-    color: $black;
-    background-color: $yellow;
+    color: $white;
+    background-color: $blue-dark;
     padding: 0 $margin-sm;
     &:hover {
-      background-color: $yellow-dark;
+      background-color: $blue-light;
     }
   }
   &results {
@@ -51,15 +51,16 @@
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
-      align-items: center;
+      // align-items: center;
       margin-bottom: $margin-lg;
       @include breakpoint(tablet) {
         flex-direction: row;
-        margin-bottom: 0;
+        margin-bottom: $margin-xl;
       }
     }
     h2 {
       font-size: $font-size-lg;
+      margin: 0;
     }
   }
 }

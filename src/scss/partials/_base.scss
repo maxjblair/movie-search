@@ -38,7 +38,7 @@ p {
   &.font-small {
     margin-top: 0;
     @include breakpoint(desktop) {
-      margin-bottom: $margin-xs;
+      margin-bottom: $margin-md;
     }
   }
 }

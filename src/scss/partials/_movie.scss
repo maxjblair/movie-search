@@ -87,6 +87,10 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease-out;
+      h4 {
+        font-size: 2rem;
+        margin: $margin-sm 0;
+      }
     }
   }
 }

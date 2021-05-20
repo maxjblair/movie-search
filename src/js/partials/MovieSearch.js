@@ -4,15 +4,18 @@ import MovieCard from './MovieCard.js'
 export default function MovieSearch() {
     const apiRoot = 'https://api.themoviedb.org/3'
     const apiKey = '47117464b881c6659bf21cb0510534bb'
-    const [query, setQuery] = useState('Star Trek')
+    const [query, setQuery] = useState('')
+    const [finalQuery, setFinalQuery] = useState('')
     const [movies, setMovies] = useState([])
     const [origMovies, setOrigMovies] = useState([])
     const [sortType, setSortType] = useState('best-match')
     const [sortDirection, setSortDirection] = useState('')
     const [movieCount, setMovieCount] = useState(0)
+    const [showResults, setShowResults] = useState(false)
 
     function searchMovies(e) {
         e.preventDefault()
+        setShowResults(false)
         if( !query ) {
             alert('Please enter a movie title.')
             return false
@@ -23,8 +26,10 @@ export default function MovieSearch() {
             .then(res => res.json())
             .then(
                 (data) => {
-                    setMovies(data.results.filter(m => m.overview.length>0 || m.poster_path))
-                    setOrigMovies(data.results.filter(m => m.overview.length>0 || m.poster_path))
+                    setMovies(data.results.filter(m => m.overview.length > 0 && m.poster_path))
+                    setOrigMovies(data.results.filter(m => m.overview.length > 0 && m.poster_path))
+                    setShowResults(true)
+                    setFinalQuery(query)            
                 },
                 (error) =>{
                     setMovies(error)
@@ -116,16 +121,16 @@ export default function MovieSearch() {
                 </div>
             </form>
             <div className="search-results">
-                <div className={ query !== '' ? 'search-results-header' : 'hide'}>
+                <div className={ showResults ? 'search-results-header' : 'hide'}>
                     <div className="search-results-header--left">
                         <h2>
                         {movies[0] ? 
-                            `Showing ${movieCount} ${movies.length > 1 ? 'Results' : 'Result'}` : 
-                            `No movies were found for your search: ${query}`
+                            `Showing ${movieCount} ${movies.length > 1 ? 'Results' : 'Result'} for '${finalQuery}'` : 
+                            `No movies were found for your search: '${finalQuery}'`
                         }
                         </h2>
                     </div>
-                    <div className={`search-results-header--right ${movies.length > 1 ? '' : 'hide'}`}>
+                    <div className={`search-results-header--right ${movieCount > 1 ? '' : 'hide'}`}>
                         <label>Sort by: </label>
                         <select onChange={(e) => setSortTypes(e.target.value)}>
                             <option value='bestMatch,A'>Best Match</option>
@@ -137,12 +142,14 @@ export default function MovieSearch() {
                             <option value="rating,Z">Rating (Decending)</option>
                         </select>
                     </div>
-                </div>                
-                <MovieCard 
-                    movies={movies} 
-                    apiRoot={apiRoot} 
-                    apiKey={apiKey}
-                />
+                </div>
+                <div className={`${showResults ? '' : 'hide'}`}>
+                    <MovieCard
+                        movies={movies} 
+                        apiRoot={apiRoot} 
+                        apiKey={apiKey}
+                    />
+                </div>
             </div>
         </div>
     )
