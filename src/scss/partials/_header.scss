@@ -1,18 +1,29 @@
 .App-header {
-    background-color: $blue-dark;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: $white;
-    margin-bottom: $margin-xl;
-    width: 100%;
-    h1 {
-      background-color: $blue-light;
-      border-radius: 10px;
-      color: $blue-dark;
+  background-color: $blue-dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  margin-bottom: $margin-xl;
+  width: 100%;
+
+  h1 {
+    background-color: $blue-light;
+    border-radius: 10px;
+    color: $blue-dark;
+    font-size: 4rem;
+    line-height: normal;
+    margin: 2rem;
+    padding: 0 2rem .5rem;
+    text-align: center;
+    @include breakpoint(mobile-small) {
+      line-height: 1;
+    }
+    @include breakpoint(tablet) {
       font-size: 5rem;
-      margin: 2rem;
       padding: 0 10rem .5rem;
     }
   }
+
+}
